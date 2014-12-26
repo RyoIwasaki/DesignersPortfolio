@@ -10,6 +10,10 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
+a {
+	text-decoration: none;
+}
+
 header {
 	height: 70px;
 	width: 100%;
@@ -25,6 +29,14 @@ header {
 		float: left;
 		color: white;
 		line-height: 64px;
+
+		a {
+			color: white;
+
+			&:hover {
+				color: gray;
+			}
+		}
 	}
 
 	.right_wrapper {
@@ -36,6 +48,14 @@ header {
 			float: left;
 			color: gray;
 			line-height: 64px;
+
+			a {
+				color: gray;
+
+				&:hover {
+					color: white;
+				}
+			}
 		}
 
 		.search {
@@ -48,15 +68,18 @@ header {
 				height: 35px;
 				background: url("../images/search.png") no-repeat;
 				position: absolute;
-				bottom: 1px;
+				bottom: 3px;
 				left: 5px;
 			}
 
 			input[type="text"] {
-				height: 32px;
 				width: 220px;
+				height: 38px;
 				margin-top: 15px;
+				border: 0;
 				border-radius: 4px;
+				font-size: 20px;
+				padding-left: 40px;
 			}
 		}
 	}
@@ -73,18 +96,32 @@ header {
 		border-bottom: solid 3px gray;
 		border-radius: 3px;
 		height: 198px;
-		background-color: #49a0b3;
-		font-size: 50px;
-		color: white;
-		line-height: 64px;
-		text-align: center;
+		background: url(../images/watch.png);
+
+		a {
+			width: 100%;
+			height: 100%;
+			display: block;
+			text-indent: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+		}
 	}
 
 	.entry_wrap {
 		margin-top: 20px;
 		width: 100%;
 
+		a {
+			color: black;
+
+			&:hover {
+				color:gray;
+			}
+		}
+
 		.entry {
+			background-color: white;
 			border: solid 1px gray;
 			border-bottom: solid 3px gray;
 			border-radius: 3px;
@@ -118,7 +155,7 @@ header {
 
 					.tag {
 						float: left;
-						background-color: silver;
+						background-color: #e3e3e3;
 						border-radius: 2px;
 						margin: 4px;
 						padding: 5px;

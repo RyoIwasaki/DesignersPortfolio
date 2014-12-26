@@ -2,6 +2,11 @@
 
 (function( win, doc, undefined ){
 
-console.log("test")
+
+
+
+$(".search").on("click", function(){
+	console.log($(this));
+})
 
 })( window, document );

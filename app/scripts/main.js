@@ -1,1 +1,6 @@
-console.log("test")
+
+
+
+$(".search").on("click", function(){
+	console.log($(this));
+})
