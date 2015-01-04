@@ -73,12 +73,16 @@ picmo.mainTimelineAJAX = function(){
 			console.log("!!!!!!!!!!ajax error!!!!!!!!!!");
 		}
 	});
+
+	return false;
 }
 
 picmo.startLoad = function(){
 	for(var i=0; i<3; i++){
 		picmo.mainTimelineAJAX();
 	}
+
+	return false;
 }
 
 picmo.getScrollTop = function(){
@@ -90,6 +94,45 @@ picmo.getScrollTop = function(){
 		picmo.mainTimelineAJAX();
 	}
 }
+
+
+var dragEventFlag = true;
+$("body").on('drop', function(event) {
+	var file = event.originalEvent.dataTransfer.files[0];
+	var formData = new FormData();
+	formData.append('file', file);
+	
+	$.ajax({
+		type: "POST",
+		url: "",
+		contentType: false,
+		processData: false,
+		data:formData,
+		success: function(response) {
+			console.log('アップロードに成功しました');
+			console.log(response);
+		},
+		error: function(xhr, error) {
+			console.log('アップデートに失敗しました');
+			console.log(error);
+		}
+	});
+
+	return false;
+		
+}).on('dragover', function(event) {
+ 	console.log("画面上に画像がON")
+
+ 	if(dragEventFlag){
+ 		dragEventFlag = false;
+		$("body").append("<div class='upload_window'><p>DRAG IN</p></div>");
+	}
+})
+
+$("body").delegate(".upload_window", "dragleave", function(){
+	dragEventFlag = true;
+	$(".upload_window").remove();
+})
 
 
 
