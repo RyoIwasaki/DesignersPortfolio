@@ -130,7 +130,7 @@ header {
 			float: left; 
 			margin: 12px 12px 0 0;
 
-			&:nth-child(4) {
+			&:nth-child(4n+4) {
 				margin: 0;
 				margin-top: 12px;
 			}

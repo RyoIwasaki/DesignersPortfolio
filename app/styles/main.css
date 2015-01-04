@@ -160,7 +160,7 @@ header .right_wrapper .search input[type='text']
     border-radius: 3px;
     background-color: white;
 }
-.wrapper .entry_wrap .entry:nth-child(4)
+.wrapper .entry_wrap .entry:nth-child(4n+4)
 {
     margin: 0;
     margin-top: 12px;
