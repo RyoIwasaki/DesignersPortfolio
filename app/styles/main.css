@@ -22,7 +22,7 @@ a
     text-decoration: none;
 }
 
-.upload_window
+.popup_wrap
 {
     position: fixed;
     top: 0;
@@ -33,7 +33,7 @@ a
 
     background-color: rgba(0, 0, 0, .7);
 }
-.upload_window p
+.popup_wrap .drag
 {
     font-size: 40px;
     font-weight: bold;
@@ -43,6 +43,85 @@ a
     text-align: center;
 
     color: white;
+}
+.popup_wrap .detail_wrap
+{
+    width: 956px;
+    margin: 20px auto;
+}
+.popup_wrap .detail_wrap .left
+{
+    float: left;
+
+    width: 720px;
+    margin-right: 10px;
+}
+.popup_wrap .detail_wrap .left .main_wrap
+{
+    width: 100%;
+
+    border-radius: 4px;
+    background-color: white;
+}
+.popup_wrap .detail_wrap .left .main_wrap .main_info
+{
+    height: 73px;
+
+    border-bottom: 1px solid #d5d5d5;
+}
+.popup_wrap .detail_wrap .left .main_wrap .main_info .title
+{
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 68px;
+
+    color: #414040;
+}
+.popup_wrap .detail_wrap .left .main_wrap .main_info .icon_wrap
+{
+    float: right;
+    clear: both;
+
+    margin: 10px 0;
+}
+.popup_wrap .detail_wrap .left .main_wrap .main_info .icon_wrap p
+{
+    font-weight: bold;
+
+    position: relative;
+
+    float: left;
+
+    margin-left: 35px;
+}
+.popup_wrap .detail_wrap .left .main_wrap .main_info .icon_wrap .favorite:before
+{
+    position: absolute;
+    left: -25px;
+
+    width: 19px;
+    height: 19px;
+
+    content: '';
+
+    background: url('../images/favorite.png') no-repeat;
+}
+.popup_wrap .detail_wrap .left .main_wrap .main_info .icon_wrap .watch:before
+{
+    position: absolute;
+    left: -28px;
+
+    width: 27px;
+    height: 19px;
+
+    content: '';
+
+    background: url('../images/watch.png') no-repeat;
+}
+.popup_wrap .detail_wrap .left .main_wrap .main_info .iine
+{
+    float: right;
+    clear: both;
 }
 
 header

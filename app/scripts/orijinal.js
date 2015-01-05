@@ -39,16 +39,16 @@ picmo.mainTimelineAdd = function(data){
 	 */
 	var entryUser = $("<div>").addClass("entry_user");
 	var entryUserLeft = $("<div>").addClass("left");
-		$(entryUserLeft).append($("<a>").attr("href", "javascript:void(0)").append($("<div>").addClass("image")))
-	var enetryUserRight = $("<div>").addClass("left")
-		$(enetryUserRight).append($("<a>").addClass("name").attr("href", "javascript:void(0)").append("田中太郎"))
-		$(enetryUserRight).append($("<a>").addClass("project").attr("href", "javascript:void(0)").append("CyberAgent"))
+		$(entryUserLeft).append($("<a>").attr("href", "javascript:void(0)").append($("<div>").addClass("image")));
+	var enetryUserRight = $("<div>").addClass("left");
+		$(enetryUserRight).append($("<a>").addClass("name").attr("href", "javascript:void(0)").append("田中太郎"));
+		$(enetryUserRight).append($("<a>").addClass("project").attr("href", "javascript:void(0)").append("CyberAgent"));
 	$(entryUser).append(entryUserLeft).append(enetryUserRight);
 
 
 	$(base).append(image).append(entryContent).append(entryUser);
 	$(".entry_wrap").append(base);
-}
+};
 
 picmo.mainTimelineAJAX = function(){
 	$.ajax({
@@ -57,7 +57,7 @@ picmo.mainTimelineAJAX = function(){
 		url: 'data.json',
 		datatype: 'json',
 		success: function(data){
-			console.log("ajax success!!! ☆great☆")
+			console.log("ajax success!!! ☆great☆");
 			/*
 			$.each(data, function(i, getData){
 				console.log(getData.name);
@@ -75,7 +75,7 @@ picmo.mainTimelineAJAX = function(){
 	});
 
 	return false;
-}
+};
 
 picmo.startLoad = function(){
 	for(var i=0; i<3; i++){
@@ -83,21 +83,40 @@ picmo.startLoad = function(){
 	}
 
 	return false;
-}
+};
 
 picmo.getScrollTop = function(){
 	var onlyFlag = false;
-	var windowBottom = document.body.scrollHeight - ($(window).height() + $(window).scrollTop())
+	var windowBottom = document.body.scrollHeight - ($(window).height() + $(window).scrollTop());
 
-	if(windowBottom <= 50){
+	if(windowBottom <= 100){
 		onlyFlag = true;
 		picmo.mainTimelineAJAX();
 	}
-}
+};
+
+
+
+
+
+
+
+
+
+/*
+ * 実行Function
+ *
+ */
+
+$(window).load(function(){
+	picmo.startLoad();
+});
+$(window).on("scroll", picmo.getScrollTop);
 
 
 var dragEventFlag = true;
 $("body").on('drop', function(event) {
+	
 	var file = event.originalEvent.dataTransfer.files[0];
 	var formData = new FormData();
 	formData.append('file', file);
@@ -117,34 +136,21 @@ $("body").on('drop', function(event) {
 			console.log(error);
 		}
 	});
-
+	
 	return false;
 		
 }).on('dragover', function(event) {
- 	console.log("画面上に画像がON")
+	console.log("画面上に画像がON");
 
- 	if(dragEventFlag){
- 		dragEventFlag = false;
-		$("body").append("<div class='upload_window'><p>DRAG IN</p></div>");
+	if(dragEventFlag){
+		dragEventFlag = false;
+		$("body").append("<div class='popup_wrap'><p class='drag'>DRAG IN</p></div>").hide().fadeIn(500);
 	}
-})
+});
 
-$("body").delegate(".upload_window", "dragleave", function(){
+$("body").delegate(".popup_wrap", "dragleave", function(){
 	dragEventFlag = true;
-	$(".upload_window").remove();
-})
-
-
-
-
-/*
- * 実行Function
- *
- */
-
-$(window).load(function(){
-	picmo.startLoad();
-})
-$(window).on("scroll", picmo.getScrollTop);
+	$(".popup_wrap").remove();
+});
 
 })( window, document );
