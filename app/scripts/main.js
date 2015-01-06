@@ -50,10 +50,12 @@ picmo.mainTimelineAJAX = function(){
 	$.ajax({
 		type: 'GET',
 		cache: false,
-		url: 'data.json',
-		datatype: 'json',
+		url: 'data.jsonp',
+		datatype: 'jsonp',
+		jsonpCallback: 'workOutlines',
 		success: function(data){
 			console.log("ajax success!!! ☆great☆");
+			console.log(data[0].workId)
 			/*
 			$.each(data, function(i, getData){
 				console.log(getData.name);
