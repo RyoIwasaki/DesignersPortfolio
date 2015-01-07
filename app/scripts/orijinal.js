@@ -1,4 +1,4 @@
-/* lastUpdated:06-01-2015 */
+/* lastUpdated:07-01-2015 */
 
 (function( win, doc, undefined ){
 
@@ -53,9 +53,8 @@ picmo.mainTimelineAdd = function(data){
 picmo.mainTimelineAJAX = function(){
 	$.ajax({
 		type: 'GET',
-		cache: false,
 		url: 'data.jsonp',
-		datatype: 'jsonp',
+		dataType: 'jsonp',
 		jsonpCallback: 'workOutlines',
 		success: function(data){
 			console.log("ajax success!!! ☆great☆");

@@ -49,9 +49,8 @@ picmo.mainTimelineAdd = function(data){
 picmo.mainTimelineAJAX = function(){
 	$.ajax({
 		type: 'GET',
-		cache: false,
 		url: 'data.jsonp',
-		datatype: 'jsonp',
+		dataType: 'jsonp',
 		jsonpCallback: 'workOutlines',
 		success: function(data){
 			console.log("ajax success!!! ☆great☆");
