@@ -101,10 +101,11 @@ picmo.detailPopupAdd = function(data){
 		$(detailComment).append(userIcon).append(userInfo);
 	/** detailComment **/
 
-	/** otherComment **/
-		var otherComment = $("<div>").addClass("other_comment detail_comment");
-		picmo.detailPopupAdd.otherCommentAdd = function(data){
+	$(commentWrap).append(detailComment);
 
+	/** otherComment **/
+		picmo.detailPopupAdd.otherCommentAdd = function(data){
+			var otherComment = $("<div>").addClass("other_comment detail_comment");
 			var otherUserIcon = $("<div>").addClass("user_icon").append($("<a>").attr("href", "javascript:void(0)").append($("<div>").addClass("image")));
 			var otherUserInfo = $("<div>").addClass("user_info");
 			var otherUserWrap = $("<div>").addClass("user_wrap");
@@ -114,6 +115,8 @@ picmo.detailPopupAdd = function(data){
 
 			$(otherUserInfo).append(otherUserWrap);
 			$(otherComment).append(otherUserIcon).append(otherUserInfo);
+
+			$(commentWrap).append(otherComment);
 		};
 
 		for(var i=0; testParam.length>i; i++){
@@ -121,9 +124,35 @@ picmo.detailPopupAdd = function(data){
 		}
 	/** otherComment **/
 
-	$(commentWrap).append(detailComment).append(otherComment);
+
+
+	/** comment_input **/
+		var commentInput = $("<div>").addClass("comment_input detail_comment");
+		var inputUserIcon = $("<div>").addClass("user_icon").append($("<a>").attr("href", "javascript:void(0)").append($("<div>").addClass("image")));
+		var inputUserInfo = $("<div>").addClass("user_info");
+		var inputUserWrap = $("<div>").addClass("user_wrap");
+			$(inputUserWrap).append($("<p>").addClass("name").append($("<a>").attr("href", "javascript:void(0)").append("田中太郎")))
+			$(inputUserWrap).append($("<p>").addClass("project").append($("<a>").attr("href", "javascript:void(0)").append("CyberAgent")))
+			var inputText = $("<div>").addClass("input_text");
+				$(inputText).append("<textarea>").attr({
+					name: "text",
+					id: "",
+					cols: "30",
+					rows: "10",
+					placeholder: "コメントする"
+				})
+			$(inputUserWrap).append(inputText);
+
+		$(inputUserInfo).append(inputUserWrap);
+		$(commentInput).append(inputUserIcon).append(inputUserInfo);
+
+	/** comment_input **/
+
+	$(commentWrap).append(commentInput);
 
 	var rightBase = $("<div>").addClass("right");
+		$(rightBase).append($("<div>").addClass("user_info show_window"));
+		$(rightBase).append($("<div>").addClass("recomend_tag show_window"));
 
 	$(leftBase).append(mainWrap).append(commentWrap);
 	$(rightBase).append();
