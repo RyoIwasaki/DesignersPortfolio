@@ -9,6 +9,7 @@ picmo.mainTimelineAdd = function(data){
 
 	var base = $("<article>").addClass("entry");
 
+
 	var image = $("<img>").attr({
 		src: "images/icon.png",
 		height: "100",
@@ -48,6 +49,13 @@ picmo.mainTimelineAdd = function(data){
 
 	$(base).append(image).append(entryContent).append(entryUser);
 	$(".entry_wrap").append(base);
+
+	/**
+	 * DATA ATTACK
+	 */
+	$(".entry").attr({
+		"data-test": "hogehoge"
+	});
 };
 
 
