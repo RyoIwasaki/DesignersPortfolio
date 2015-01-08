@@ -24,7 +24,7 @@ a
 
 .popup_wrap
 {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
 
@@ -189,9 +189,117 @@ a
 .popup_wrap .detail_wrap .left .comment_wrap
 {
     height: auto;
+    margin-top: 10px;
+    padding: 10px;
 
     border-radius: 4px;
     background-color: #f9f9f9;
+}
+.popup_wrap .detail_wrap .left .comment_wrap a
+{
+    color: #535353;
+}
+.popup_wrap .detail_wrap .left .comment_wrap a:hover
+{
+    color: black;
+}
+.popup_wrap .detail_wrap .left .comment_wrap .detail_comment
+{
+    height: 145px;
+
+    border-bottom: 1px solid gray;
+}
+.popup_wrap .detail_wrap .left .comment_wrap .detail_comment .user_icon
+{
+    float: left;
+
+    width: 90px;
+    height: 90px;
+
+    border-radius: 45px;
+    background-image: url('../images/watch.png');
+}
+.popup_wrap .detail_wrap .left .comment_wrap .detail_comment .user_info .user_wrap
+{
+    font-size: 20px;
+
+    float: left;
+
+    margin-top: 32px;
+    margin-left: 12px;
+}
+.popup_wrap .detail_wrap .left .comment_wrap .detail_comment .user_info .user_wrap .name
+{
+    font-weight: bold;
+
+    float: left;
+}
+.popup_wrap .detail_wrap .left .comment_wrap .detail_comment .user_info .user_wrap .project a
+{
+    margin-left: 10px;
+}
+.popup_wrap .detail_wrap .left .comment_wrap .detail_comment .user_info .user_wrap .tag_wrap
+{
+    float: left;
+}
+.popup_wrap .detail_wrap .left .comment_wrap .detail_comment .user_info .user_wrap .tag_wrap .tag
+{
+    font-size: 14px;
+
+    float: left;
+
+    margin: 4px;
+    padding: 5px;
+
+    border-radius: 2px;
+    background-color: #e3e3e3;
+}
+.popup_wrap .detail_wrap .left .comment_wrap .detail_comment .user_info .user_wrap .comment
+{
+    font-size: 16px;
+
+    width: 598px;
+    margin-top: 10px;
+}
+.popup_wrap .detail_wrap .left .comment_wrap .other_comment
+{
+    clear: both;
+
+    height: 110px;
+    padding-top: 10px;
+
+    border-bottom: 1px solid gray;
+}
+.popup_wrap .detail_wrap .left .comment_wrap .comment_input
+{
+    padding-top: 10px;
+
+    border: none;
+}
+.popup_wrap .detail_wrap .left .comment_wrap .comment_input .user_info .user_wrap
+{
+    margin-top: 10px;
+}
+.popup_wrap .detail_wrap .left .comment_wrap .comment_input .user_info .user_wrap .project
+{
+    float: left;
+}
+.popup_wrap .detail_wrap .left .comment_wrap .comment_input .user_info .user_wrap .input_text
+{
+    clear: both;
+
+    padding-top: 10px;
+}
+.popup_wrap .detail_wrap .left .comment_wrap .comment_input .user_info .user_wrap .input_text textarea
+{
+    font-size: 22px;
+    font-weight: bold;
+
+    width: 590px;
+    height: 75px;
+
+    border: 1px solid gray;
+    border-radius: 4px;
 }
 .popup_wrap .detail_wrap .right
 {
@@ -205,6 +313,10 @@ a
     height: 230px;
 
     background-color: red;
+}
+.popup_wrap .detail_wrap .right .show_window:not(:nth-child(1))
+{
+    margin-top: 10px;
 }
 
 header

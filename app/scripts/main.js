@@ -46,6 +46,92 @@ picmo.mainTimelineAdd = function(data){
 	$(".entry_wrap").append(base);
 };
 
+
+
+picmo.detailPopupAdd = function(data){
+	/**　仮パラメーター **/
+	var testParam = ["test", "test", "test"];
+	/**　仮パラメーター **/
+	var popupBase = $("<div>").addClass("popup_wrap");
+	var detailWrap = $("<div>").addClass("detail_wrap");
+
+	var leftBase = $("<div>").addClass("left");
+
+	var mainWrap = $("<div>").addClass("main_wrap");
+	var mainInfo = $("<div>").addClass("main_info");
+		$(mainInfo).append($("<span>").addClass("title").append("タイトル"));
+	var iconWrap = $("<div>").addClass("icon_wrap");
+		$(iconWrap).append($("<p>").addClass("favorite").append($("<a>").attr("href", "javascript:void(0)").append("12")));
+		$(iconWrap).append($("<p>").addClass("watch").append($("<a>").attr("href", "javascript:void(0)").append("100")));
+		$(mainInfo).append(iconWrap);
+		$(mainInfo).append($("<div>").addClass("iine").append($("<a>").attr("href", "javascript:void(0)").append("いいね")));
+	var imageWrap = $("<div>").addClass("image_wrap").append($("<img>").addClass("image").attr({
+		src: "images/icon.png",
+		height: "100",
+		width: "238"
+	}))
+	$(mainWrap).append(mainInfo).append(imageWrap);
+
+	var commentWrap = $("<div>").addClass("comment_wrap");
+
+	/** detailComment **/
+		var detailComment = $("<div>").addClass("detail_comment");
+		
+		var userIcon = $("<div>").addClass("user_icon").append($("<a>").attr("href", "javascript:void(0)").append($("<div>").addClass("image")));
+		var userInfo = $("<div>").addClass("user_info");
+		var userWrap = $("<div>").addClass("user_wrap");
+			$(userWrap).append($("<p>").addClass("name").append($("<a>").attr("href", "javascript:void(0)").append("田中太郎")))
+			$(userWrap).append($("<p>").addClass("project").append($("<a>").attr("href", "javascript:void(0)").append("CyberAgent")))
+			$(userWrap).append($("<p>").addClass("comment").append($("<a>").attr("href", "javascript:void(0)").append("はろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろー")))
+
+			var tagWrap = $("<div>").addClass("tag_wrap");
+
+			picmo.detailPopupAdd.tagAdd = function(data){
+				var tagAdd = $("<p>").addClass("tag").append($("<a>").attr("href", "javascript:void(0)").append("#" + "田中太郎"));
+				$(tagWrap).append(tagAdd);
+			}
+
+			for(var i=0; testParam.length>i; i++){
+				picmo.detailPopupAdd.tagAdd();
+			}
+			$(userWrap).append(tagWrap);
+
+
+		$(userInfo).append(userWrap);
+		$(detailComment).append(userIcon).append(userInfo);
+	/** detailComment **/
+
+	/** otherComment **/
+		var otherComment = $("<div>").addClass("other_comment detail_comment");
+		picmo.detailPopupAdd.otherCommentAdd = function(data){
+
+			var otherUserIcon = $("<div>").addClass("user_icon").append($("<a>").attr("href", "javascript:void(0)").append($("<div>").addClass("image")));
+			var otherUserInfo = $("<div>").addClass("user_info");
+			var otherUserWrap = $("<div>").addClass("user_wrap");
+				$(otherUserWrap).append($("<p>").addClass("name").append($("<a>").attr("href", "javascript:void(0)").append("田中太郎")))
+				$(otherUserWrap).append($("<p>").addClass("project").append($("<a>").attr("href", "javascript:void(0)").append("CyberAgent")))
+				$(otherUserWrap).append($("<p>").addClass("comment").append($("<a>").attr("href", "javascript:void(0)").append("はろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろー")))
+
+			$(otherUserInfo).append(otherUserWrap);
+			$(otherComment).append(otherUserIcon).append(otherUserInfo);
+		};
+
+		for(var i=0; testParam.length>i; i++){
+			picmo.detailPopupAdd.otherCommentAdd();
+		}
+	/** otherComment **/
+
+	$(commentWrap).append(detailComment).append(otherComment);
+
+	var rightBase = $("<div>").addClass("right");
+
+	$(leftBase).append(mainWrap).append(commentWrap);
+	$(rightBase).append();
+	$(detailWrap).append(leftBase).append(rightBase);
+	$(popupBase).append(detailWrap);
+	$("body").append(popupBase).hide().fadeIn(500);
+};
+
 picmo.mainTimelineAJAX = function(){
 	$.ajax({
 		type: 'GET',
@@ -54,7 +140,7 @@ picmo.mainTimelineAJAX = function(){
 		jsonpCallback: 'workOutlines',
 		success: function(data){
 			console.log("ajax success!!! ☆great☆");
-			console.log(data[0].workId)
+			picmo.mainTimelineAdd();
 			/*
 			$.each(data, function(i, getData){
 				console.log(getData.name);
@@ -62,9 +148,6 @@ picmo.mainTimelineAJAX = function(){
 			});
 			mainTimelineAdd(data);
 			*/
-			for(var i=0; 3>i; i++){
-				picmo.mainTimelineAdd();
-			}
 		},
 		error: function(){
 			console.log("!!!!!!!!!!ajax error!!!!!!!!!!");
@@ -75,7 +158,7 @@ picmo.mainTimelineAJAX = function(){
 };
 
 picmo.startLoad = function(){
-	for(var i=0; i<3; i++){
+	for(var i=0; i<10; i++){
 		picmo.mainTimelineAJAX();
 	}
 
@@ -105,10 +188,14 @@ picmo.getScrollTop = function(){
  *
  */
 
-$(window).load(function(){
-	picmo.startLoad();
-});
+$(window).on("load", picmo.startLoad);
 $(window).on("scroll", picmo.getScrollTop);
+
+
+//test
+$(".header_title").on("click", function(){
+	picmo.detailPopupAdd();
+});
 
 
 var dragEventFlag = true;
@@ -149,3 +236,6 @@ $("body").delegate(".popup_wrap", "dragleave", function(){
 	dragEventFlag = true;
 	$(".popup_wrap").remove();
 });
+$("body").delegate(".popup_wrap", "click", function(){
+	$(this).remove();
+})
