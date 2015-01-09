@@ -196,11 +196,11 @@ picmo.detailPopupAdd = function(data){
 	$("body").append(popupBase).hide().fadeIn(500);
 };
 
-picmo.mainTimelineAJAX = function(lastWorkId){
+picmo.mainTimelineAJAX = function(workId){
 	$.ajax({
 		type: 'GET',
 		url: 'data.json',
-		data: lastWorkId,
+		data: workId,
 		dataType: 'json',
 		success: function(data){
 			console.log("ajax success!!! ☆great☆");
@@ -220,28 +220,29 @@ picmo.mainTimelineAJAX = function(lastWorkId){
 	return false;
 };
 
-picmo.detailPopupAJAX = function() {
+picmo.detailPopupAJAX = function(workId) {
 	$.ajax({
 		type: 'GET',
-		url: 'data.jsonp',
-		dataType: 'jsonp',
-		jsonpCallback: 'workOutlines',
+		url: 'data.json',
+		data: workId,
+		dataType: 'json',
 		success: function(data){
 			console.log("ajax success!!! ☆great☆");
 			//picmo.mainTimelineAdd(data);
-			console.log(data)
+			console.log(data.workOutlines)
 			
-			$.each(data, function(i, getData){
-				picmo.mainTimelineAdd(getData);
+			$.each(data.workOutlines, function(i, getData){
+				picmo.detailPopupAdd(getData);
 			});
 		},
-		error: function(){
-			console.log("!!!!!!!!!!ajax error!!!!!!!!!!");
+		error: function(jqXHR, textStatus, errorThrown) {
+			console.log("エラー：" + textStatus);
+			console.log("テキスト：" + jqXHR.responseText);
 		}
 	});
 
 	return false;
-}
+};
 
 picmo.startLoad = function(){
 	// for(var i=0; i<10; i++){
@@ -276,16 +277,15 @@ picmo.getScrollTop = function(lastWorkId){
 
 $(window).on("load", picmo.startLoad);
 $(window).on("scroll", function(){
-
 	var lastWorkIdGet = $(".entry").last().data("workid");
 	var lastWorkId = {"lastWorkId": lastWorkIdGet};
 	picmo.getScrollTop(lastWorkId);
 });
 
-
-//test
-$(".header_title").on("click", function(){
-	picmo.detailPopupAdd();
+$("body").delegate(".entry .image", "click", function(){
+	var thisWorkIdGet = $(this).parent().data("workid");
+	var thisWorkId = {"lastWorkId": thisWorkId};
+	picmo.detailPopupAdd(thisWorkId);
 });
 
 

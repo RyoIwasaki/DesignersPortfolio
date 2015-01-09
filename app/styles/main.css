@@ -595,3 +595,161 @@ header .right_wrapper .search input[type='text']
     float: left;
     clear: both;
 }
+
+.profile_wrap
+{
+    display: block;
+
+    width: 100%;
+    height: 545px;
+
+    background-color: gray;
+}
+.profile_wrap .profile_content
+{
+    position: relative;
+    top: 19px;
+
+    width: 1000px;
+    height: 525px;
+    margin: 0 auto;
+
+    border: 1px solid white;
+    border-radius: 2px;
+}
+.profile_wrap .profile_content .cover
+{
+    width: 100%;
+    height: 310px;
+
+    background: url('../images/special.png');
+    background-size: contain;
+}
+.profile_wrap .profile_content .cover .user_info
+{
+    position: relative;
+    top: 162px;
+}
+.profile_wrap .profile_content .cover .user_info .left
+{
+    float: left;
+}
+.profile_wrap .profile_content .cover .user_info .left .user_icon
+{
+    position: relative;
+    top: 40px;
+    left: 25px;
+
+    width: 148px;
+    height: 148px;
+
+    border: 1px solid gray;
+    border-radius: 2px;
+    background: url('../images/watch.png');
+    background-size: contain;
+}
+.profile_wrap .profile_content .cover .user_info .left .user_icon a
+{
+    display: block;
+
+    width: 100%;
+    height: 100%;
+}
+.profile_wrap .profile_content .cover .user_info .left .user_name_project
+{
+    position: relative;
+    top: -75px;
+    left: 190px;
+}
+.profile_wrap .profile_content .cover .user_info .left .user_name_project .user_name
+{
+    font-size: 32px;
+    font-weight: bold;
+
+    color: white;
+    text-shadow: 0 1px 0 black;
+}
+.profile_wrap .profile_content .cover .user_info .left .user_name_project .projet
+{
+    font-size: 16px;
+    font-weight: bold;
+
+    margin-top: 4px;
+
+    color: white;
+    text-shadow: 0 1px 0 black;
+}
+.profile_wrap .profile_content .cover .user_info .right
+{
+    float: right;
+
+    margin-top: 80px;
+}
+.profile_wrap .profile_content .cover .user_info .right .button
+{
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 48px;
+
+    float: left;
+
+    width: 128px;
+    height: 48px;
+    margin-right: 20px;
+
+    text-align: center;
+
+    color: black;
+    border: solid 1px gray;
+    border-radius: 4px;
+    background-color: silver;
+}
+.profile_wrap .profile_content .cover .user_info .right .button a
+{
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    color: black;
+}
+.profile_wrap .profile_content .cover_bottom
+{
+    height: 215px;
+    padding-left: 190px;
+
+    background-color: white;
+}
+.profile_wrap .profile_content .cover_bottom .mail
+{
+    font-size: 16px;
+
+    padding: 10px 0;
+
+    color: gray;
+}
+.profile_wrap .profile_content .cover_bottom .comment
+{
+    font-size: 16px;
+
+    color: gray;
+}
+.profile_wrap .profile_content .cover_bottom .user_stamp
+{
+    height: 110px;
+    padding-top: 10px;
+}
+.profile_wrap .profile_content .cover_bottom .user_stamp .stamp
+{
+    display: block;
+    float: left;
+
+    width: 110px;
+    height: 110px;
+
+    background-color: orange;
+}
+.profile_wrap .profile_content .cover_bottom .user_stamp .blue
+{
+    background-color: blue;
+}

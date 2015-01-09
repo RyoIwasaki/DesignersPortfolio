@@ -492,6 +492,137 @@ header {
 			}
 		}//entry
 	}//entry_wrap
+}//wrapper
 
 
+
+.profile_wrap {
+	width:100%;
+	height: 545px;
+	display: block;
+	background-color: gray;
+
+	.profile_content {
+		height: 525px;
+		width: 1000px;
+		margin: 0 auto;
+		border: 1px solid white;
+		border-radius: 2px;
+		position: relative;
+		top: 19px;
+
+		.cover {
+			height: 310px;
+			width: 100%;
+			background: url("../images/special.png");
+			background-size: contain;
+
+			.user_info {
+				position: relative;
+				top: 162px;
+
+				.left {
+					float: left;
+
+					.user_icon {
+						width: 148px;
+						height: 148px;
+						background: url("../images/watch.png");
+						background-size: contain;
+						border: 1px solid gray;
+						border-radius: 2px;
+						position: relative;
+						top: 40px;
+						left: 25px;
+
+						a {
+							width: 100%;
+							height: 100%;
+							display: block;
+						}
+					}
+					.user_name_project {
+						position: relative;
+						left: 190px;
+						top: -75px;
+
+						.user_name {
+							color: white;
+							font-size: 32px;
+							font-weight: bold;
+							text-shadow: 0 1px 0 black;
+						}
+
+						.projet {
+							margin-top: 4px;
+							color: white;
+							font-size: 16px;
+							font-weight: bold;
+							text-shadow: 0 1px 0 black;
+						}
+					}
+				}//left
+
+				.right {
+					float: right;
+					margin-top: 80px;
+
+					.button {
+						float: left;
+						margin-right: 20px;
+						width: 128px;
+						height: 48px;
+						font-size: 18px;
+						font-weight: bold;
+						line-height: 48px;
+						color: black;
+						text-align: center;
+						border: solid 1px gray;
+						border-radius: 4px;
+						background-color: silver;
+
+						a {
+							color: black;
+							width: 100%;
+							height: 100%;
+							display: block;
+						}
+					}
+				}
+			}
+		}//cover
+
+		.cover_bottom {
+			background-color: white;
+			height: 215px;
+			padding-left: 190px;
+
+			.mail {
+				font-size: 16px;
+				padding: 10px 0;
+				color: gray;
+			}
+			.comment {
+				font-size: 16px;
+				color: gray;
+			}
+
+			.user_stamp {
+				padding-top: 10px;
+				height: 110px;
+
+				.stamp {
+					width: 110px;
+					height: 110px;
+					float: left;
+					background-color: orange;
+					display: block;
+				}
+
+				.blue {
+					background-color: blue;
+				}
+			}
+		}
+	}
 }
