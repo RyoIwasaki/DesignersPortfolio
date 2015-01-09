@@ -1,48 +1,51 @@
 {
-	workOutlines: [
+	"workOutlines": [
 		{
-			workId: "3",
-			thumbnailAddress: "3",
-			title: "あおまん",
-			caption: "青い男の写真",
-			tagList: [ ],
-			like: "0",
-			isLiked: false,
-			miniProfile: {
-				iconAddress: "/picmo/upload/icon/1_1-0.jpg",
-				userId: "1",
-				userName: "田中佑樹",
-				userDepartment: "グレンジ"
+			"workId": "3",
+			"thumbnailAddress": "images/special.png",
+			"title": "あおまん",
+			"caption": "青い男の写真",
+			"tagList": ["hey1", "hey2", "hey3"],
+			"like": "0",
+			"isLiked": false,
+			"watch": "100",
+			"miniProfile": {
+				"iconAddress": "images/watch.png",
+				"userId": "1",
+				"userName": "田中佑樹",
+				"userDepartment": "グレンジ"
 			}
 		},
 		{
-			workId: "2",
-			thumbnailAddress: "2",
-			title: "みどりまん",
-			caption: "みどりの男の写真",
-			tagList: [ ],
-			like: "0",
-			isLiked: false,
-			miniProfile: {
-				iconAddress: "/picmo/upload/icon/1_1-0.jpg",
-				userId: "1",
-				userName: "田中佑樹",
-				userDepartment: "グレンジ"
-				}
+			"workId": "3",
+			"thumbnailAddress": "images/special.png",
+			"title": "あおまん",
+			"caption": "青い男の写真",
+			"tagList": ["hey1", "hey2", "hey3"],
+			"like": "0",
+			"isLiked": false,
+			"watch": "100",
+			"miniProfile": {
+				"iconAddress": "images/watch.png",
+				"userId": "1",
+				"userName": "田中佑樹",
+				"userDepartment": "グレンジ"
+			}
 		},
 		{
-			workId: "1",
-			thumbnailAddress: "1",
-			title: "あかまん",
-			caption: "赤い男の写真",
-			tagList: [ ],
-			like: "0",
-			isLiked: false,
-			miniProfile: {
-				iconAddress: "/picmo/upload/icon/1_1-0.jpg",
-				userId: "1",
-				userName: "田中佑樹",
-				userDepartment: "グレンジ"
+			"workId": "3",
+			"thumbnailAddress": "images/special.png",
+			"title": "あおまん",
+			"caption": "青い男の写真",
+			"tagList": ["hey1", "hey2", "hey3"],
+			"like": "0",
+			"isLiked": false,
+			"watch": "100",
+			"miniProfile": {
+				"iconAddress": "images/watch.png",
+				"userId": "1",
+				"userName": "田中佑樹",
+				"userDepartment": "グレンジ"
 			}
 		}
 	]

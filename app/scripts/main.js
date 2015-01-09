@@ -1,34 +1,50 @@
 picmo.mainTimelineAdd = function(data){
-	/** 仮パラメータ **/
-	var tags = ["hey", "hey", "hey"];
-	/** 仮パラメータ **/
+	/** param **/
+	var workId				= data.workId,
+		thumbnailAddress	= data.thumbnailAddress,
+		titleString			= data.title,
+		captionString		= data.caption,
+		tagList				= data.tagList,
+		likeNum				= data.like,
+		watchNum			= data.watch,
+		likeJudge			= data.isLiked,
+		minProIcon			= data.miniProfile.iconAddress,
+		miniProUserId		= data.miniProfile.userId,
+		miniProUserName		= data.miniProfile.userName,
+		miniProDepertment	= data.miniProfile.userDepartment;
+
 
 	var base = $("<article>").addClass("entry");
 
-
-	var image = $("<img>").attr({
-		src: "images/icon.png",
-		height: "100",
-		width: "238"
+	/**
+	 * image ELEMENT
+	 */
+	var image = $("<div>").addClass("image").css({
+		"background": "url(" + thumbnailAddress +") no-repeat",
+		"background-size": "contain",
+		"height": "100",
+		"width": "238"
 	});
+	$(image).append($("<a>").attr("href", "javascript:void(0)"));
+
 
 	/**
 	 * entry_content ELEMENT
 	 */
 	var entryContent = $("<div>").addClass("entry_content");
-	$(entryContent).append($("<p>").addClass("entry_title").append($("<a>").attr("href", "javascript:void(0)").append("作品名")));
-	$(entryContent).append($("<p>").addClass("entry_comment").append("コメントコメントコメントコメントコメント"));
+	$(entryContent).append($("<p>").addClass("entry_title").append($("<a>").attr("href", "javascript:void(0)").append(titleString)));
+	$(entryContent).append($("<p>").addClass("entry_comment").append(captionString));
 
 	var tagsElement = $("<div>").addClass("tag_wrap");
-	for(var i = 0; tags.length > i; i++){
-		var tag = $("<p>").addClass("tag").append($("<a>").attr("href", "javascript:void(0)").append("#" + "タグ"));
+	for(var i = 0; tagList.length > i; i++){
+		var tag = $("<p>").addClass("tag").append($("<a>").attr("href", "javascript:void(0)").append("#" + tagList[i]));
 		$(tagsElement).append(tag);
 	}
 	$(entryContent).append(tagsElement);
 
 	var iconElement = $("<div>").addClass("icon_wrap");
-		$(iconElement).append($("<p>").addClass("favorite").append($("<a>").attr("href", "javascript:void(0)").append("12")))
-		$(iconElement).append($("<p>").addClass("watch").append($("<a>").attr("href", "javascript:void(0)").append("100")))
+		$(iconElement).append($("<p>").addClass("favorite").append($("<a>").attr("href", "javascript:void(0)").append(likeNum)));
+		$(iconElement).append($("<p>").addClass("watch").append($("<a>").attr("href", "javascript:void(0)").append(watchNum)));
 	$(entryContent).append(iconElement);
 
 	/**
@@ -36,22 +52,24 @@ picmo.mainTimelineAdd = function(data){
 	 */
 	var entryUser = $("<div>").addClass("entry_user");
 	var entryUserLeft = $("<div>").addClass("left");
-		$(entryUserLeft).append($("<a>").attr("href", "javascript:void(0)").append($("<div>").addClass("image")));
-	var enetryUserRight = $("<div>").addClass("left");
+		var miniProIcon = $("<div>").addClass("image").css({
+			"background": "url(" + minProIcon +") no-repeat",
+			"background-size": "contain"
+		})
+		$(miniProIcon).append($("<a>").attr("href", "javascript:void(0)"));
+		$(entryUserLeft).append(miniProIcon);
+
+	var enetryUserRight = $("<div>").addClass("right");
 		$(enetryUserRight).append($("<a>").addClass("name").attr("href", "javascript:void(0)").append("田中太郎"));
 		$(enetryUserRight).append($("<a>").addClass("project").attr("href", "javascript:void(0)").append("CyberAgent"));
 	$(entryUser).append(entryUserLeft).append(enetryUserRight);
 
 
 	$(base).append(image).append(entryContent).append(entryUser);
-	$(".entry_wrap").append(base);
-
-	/**
-	 * DATA ATTACK
-	 */
-	$(".entry").attr({
-		"data-test": "hogehoge"
+	$(base).attr({
+		"data-workid": workId
 	});
+	$(".entry_wrap").append(base);
 };
 
 
@@ -60,6 +78,11 @@ picmo.detailPopupAdd = function(data){
 	/**　仮パラメーター **/
 	var testParam = ["test", "test", "test"];
 	/**　仮パラメーター **/
+
+	/** param **/
+	//var 
+	/** param **/
+
 	var popupBase = $("<div>").addClass("popup_wrap");
 	var detailWrap = $("<div>").addClass("detail_wrap");
 
@@ -88,9 +111,9 @@ picmo.detailPopupAdd = function(data){
 		var userIcon = $("<div>").addClass("user_icon").append($("<a>").attr("href", "javascript:void(0)").append($("<div>").addClass("image")));
 		var userInfo = $("<div>").addClass("user_info");
 		var userWrap = $("<div>").addClass("user_wrap");
-			$(userWrap).append($("<p>").addClass("name").append($("<a>").attr("href", "javascript:void(0)").append("田中太郎")))
-			$(userWrap).append($("<p>").addClass("project").append($("<a>").attr("href", "javascript:void(0)").append("CyberAgent")))
-			$(userWrap).append($("<p>").addClass("comment").append($("<a>").attr("href", "javascript:void(0)").append("はろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろー")))
+			$(userWrap).append($("<p>").addClass("name").append($("<a>").attr("href", "javascript:void(0)").append("田中太郎")));
+			$(userWrap).append($("<p>").addClass("project").append($("<a>").attr("href", "javascript:void(0)").append("CyberAgent")));
+			$(userWrap).append($("<p>").addClass("comment").append($("<a>").attr("href", "javascript:void(0)").append("はろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろーはろー")));
 
 			var tagWrap = $("<div>").addClass("tag_wrap");
 
@@ -169,7 +192,31 @@ picmo.detailPopupAdd = function(data){
 	$("body").append(popupBase).hide().fadeIn(500);
 };
 
-picmo.mainTimelineAJAX = function(){
+picmo.mainTimelineAJAX = function(lastWorkId){
+	$.ajax({
+		type: 'GET',
+		url: 'data.json',
+		data: lastWorkId,
+		dataType: 'json',
+		success: function(data){
+			console.log("ajax success!!! ☆great☆");
+			//picmo.mainTimelineAdd(data);
+			console.log(data.workOutlines)
+			
+			$.each(data.workOutlines, function(i, getData){
+				picmo.mainTimelineAdd(getData);
+			});
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+			console.log("エラー：" + textStatus);
+			console.log("テキスト：" + jqXHR.responseText);
+		}
+	});
+
+	return false;
+};
+
+picmo.detailPopupAJAX = function() {
 	$.ajax({
 		type: 'GET',
 		url: 'data.jsonp',
@@ -177,14 +224,12 @@ picmo.mainTimelineAJAX = function(){
 		jsonpCallback: 'workOutlines',
 		success: function(data){
 			console.log("ajax success!!! ☆great☆");
-			picmo.mainTimelineAdd();
-			/*
+			//picmo.mainTimelineAdd(data);
+			console.log(data)
+			
 			$.each(data, function(i, getData){
-				console.log(getData.name);
-				//mainTimelineAdd(getData);
+				picmo.mainTimelineAdd(getData);
 			});
-			mainTimelineAdd(data);
-			*/
 		},
 		error: function(){
 			console.log("!!!!!!!!!!ajax error!!!!!!!!!!");
@@ -192,23 +237,23 @@ picmo.mainTimelineAJAX = function(){
 	});
 
 	return false;
-};
+}
 
 picmo.startLoad = function(){
-	for(var i=0; i<10; i++){
-		picmo.mainTimelineAJAX();
-	}
-
+	// for(var i=0; i<10; i++){
+	// 	picmo.mainTimelineAJAX();
+	// }
+	picmo.mainTimelineAJAX();
 	return false;
 };
 
-picmo.getScrollTop = function(){
+picmo.getScrollTop = function(lastWorkId){
 	var onlyFlag = false;
 	var windowBottom = document.body.scrollHeight - ($(window).height() + $(window).scrollTop());
 
 	if(windowBottom <= 100){
 		onlyFlag = true;
-		picmo.mainTimelineAJAX();
+		picmo.mainTimelineAJAX(lastWorkId);
 	}
 };
 
@@ -226,7 +271,12 @@ picmo.getScrollTop = function(){
  */
 
 $(window).on("load", picmo.startLoad);
-$(window).on("scroll", picmo.getScrollTop);
+$(window).on("scroll", function(){
+
+	var lastWorkIdGet = $(".entry").last().data("workid");
+	var lastWorkId = {"lastWorkId": lastWorkIdGet};
+	picmo.getScrollTop(lastWorkId);
+});
 
 
 //test
